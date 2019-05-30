@@ -49,6 +49,7 @@ correct_prediction = tf.equal(tf.argmax(y,1),tf.argmax(prediction_2,1)) #argmax�
 #求准确率
 accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))
 
+saver=tf.train.Saver(max_to_keep=1)
 with tf.Session() as sess:
     sess.run(init)
     for epoch in range(21):
@@ -58,3 +59,4 @@ with tf.Session() as sess:
         
         acc = sess.run(accuracy,feed_dict={x:mnist.test.images,y:mnist.test.labels,keep_prob:1.0})
         print("Iter "+str(epoch)+",Testing Accuracy "+str(acc))
+    saver.save(sess,'.\ckpt\mnist.ckpt')

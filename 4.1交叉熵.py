@@ -33,6 +33,7 @@ correct_prediction = tf.equal(tf.argmax(y,1),tf.argmax(prediction,1)) #argmax返
 #求准确率
 accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))
 
+saver=tf.train.Saver(max_to_keep=1)
 with tf.Session() as sess:
     sess.run(init)
     for epoch in range(21):
