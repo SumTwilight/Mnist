@@ -64,12 +64,11 @@ saver=tf.train.Saver(max_to_keep=1)
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    for epoch in range(21):
+    for epoch in range(2):
         for batch in range(n_batch):
             batch_xs, batch_ys = mnist.train.next_batch(batch_size)
             sess.run(train_step, feed_dict={x:batch_xs,y:batch_ys,keep_prob:0.7})
         acc = sess.run(accuracy, feed_dict={x:mnist.test.images, y:mnist.test.labels, keep_prob:1.0})
         print("Iter: " + str(epoch) + ", acc: " + str(acc))
-    saver.save(sess,'.\ckpt\mnist.ckpt')
+    saver.save(sess,'./ckpt/mnist.ckpt')
 
-        

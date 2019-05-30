@@ -63,7 +63,7 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))
 saver=tf.train.Saver(max_to_keep=1)
 with tf.Session() as sess:
     sess.run(init)
-    saver.restore(sess, '.\ckpt\mnist.ckpt')  # 使用模型
+    saver.restore(sess, './ckpt/mnist.ckpt')  # 使用模型
     predicte = tf.argmax(prediction_2, 1)
     result = predicte.eval(feed_dict={x: [ImageResult]}, session=sess)
     print('识别结果:',result[0])

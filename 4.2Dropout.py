@@ -59,4 +59,4 @@ with tf.Session() as sess:
 
         acc = sess.run(accuracy,feed_dict={x:mnist.test.images,y:mnist.test.labels,keep_prob:1.0})
         print("Iter "+str(epoch)+",Testing Accuracy "+str(acc))
-    saver.save(sess,'.\ckpt\mnist.ckpt')
+    saver.save(sess,'./ckpt/mnist.ckpt')
