@@ -65,7 +65,7 @@ saver = tf.train.Saver(max_to_keep=1)
 with tf.Session() as sess:
     sess.run(init)
     saver.restore(sess, './ckpt/mnist.ckpt')  # 使用模型
-    a = os.listdir('D:\\WorkingArea\\python\\Mnist\\MnistImage\\')
+    a = os.listdir('./MnistImage/')
     for i in a:
         ImageResult = HongsirNiuBi(i)
         predicte = tf.argmax(prediction_2, 1)

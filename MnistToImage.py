@@ -6,7 +6,7 @@ import os
 save_dir = './MnistImage/'
 if os.path.exists(save_dir) is False:
     os.makedirs(save_dir)
-for i in range(20):
+for i in range(40):
     image = mnist.train.images[i,:]
     image = image.reshape(28,28)
     file = save_dir+'mnist_test_%d.jpg' % i
